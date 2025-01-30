@@ -1,5 +1,6 @@
 import express from 'express'
 import { config } from 'dotenv'
+import helmet from 'helmet'
 import * as handlers from './handler.js'
 
 // Load environment variables
@@ -7,6 +8,8 @@ config()
 
 const app = express()
 const port = process.env.PORT || 3000
+
+app.use(helmet())
 
 app.get('/', handlers.athlete)
 app.get('/stats', handlers.stats)
