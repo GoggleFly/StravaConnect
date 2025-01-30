@@ -6,12 +6,16 @@ import * as handlers from './handler.js'
 config()
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.get('/', handlers.athlete)
 app.get('/stats', handlers.stats)
 app.get('/activities', handlers.activities)
 
-app.listen(port, () => {
-  console.log(`StavaConnect listening on port ${port}`)
+app.listen(port, (err) => {
+  if (err) {
+    console.error('Error starting server:', err)
+  } else {
+    console.log(`StavaConnect listening on port: ${port}`)
+  }
 })
