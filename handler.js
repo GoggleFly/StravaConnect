@@ -1,5 +1,5 @@
 import axios from 'axios';
-const fs = require('fs');
+import fs from 'fs';
 
 // Helper function to refresh the access token
 const refreshAccessToken = async () => {
