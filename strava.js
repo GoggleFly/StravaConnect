@@ -60,6 +60,8 @@ const updateEnvionrmentVariables = (accessToken, refreshToken) => {
     fs.writeFileSync(envFilePath, envFileContent);
 }
 
-export default {
+const strava = {
     makeRequest
 };
+
+export default strava;
