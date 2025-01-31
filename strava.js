@@ -59,3 +59,7 @@ const updateEnvionrmentVariables = (accessToken, refreshToken) => {
     envFileContent = envFileContent.replace(/STRAVA_REFRESH_TOKEN=.*/, `STRAVA_REFRESH_TOKEN=${refreshToken}`);
     fs.writeFileSync(envFilePath, envFileContent);
 }
+
+module.exports = {
+    makeRequest
+};
