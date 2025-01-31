@@ -1,24 +1,8 @@
-import express from 'express'
-import { config } from 'dotenv'
-import helmet from 'helmet'
-import * as handlers from './handler.js'
+import strava from "./strava.js";
 
-// Load environment variables
-config()
-
-const app = express()
-const port = process.env.PORT || 3000
-
-app.use(helmet())
-
-app.get('/', handlers.athlete)
-app.get('/stats', handlers.stats)
-app.get('/activities', handlers.activities)
-
-app.listen(port, (err) => {
-  if (err) {
-    console.error('Error starting server:', err)
-  } else {
-    console.log(`StavaConnect listening on port: ${port}`)
-  }
-})
+strava.makeRequest({
+    method: 'get',
+    url: '/athlete'
+}).then(response => {
+    console.log(response.data.firstname);
+});
