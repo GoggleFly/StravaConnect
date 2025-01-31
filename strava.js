@@ -60,6 +60,6 @@ const updateEnvionrmentVariables = (accessToken, refreshToken) => {
     fs.writeFileSync(envFilePath, envFileContent);
 }
 
-module.exports = {
+export default {
     makeRequest
 };
